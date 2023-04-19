@@ -1,28 +1,27 @@
 import { useState } from "react";
 import "./App.css";
 import Canvas from "./components/Canvas";
-import ImageDisplay from "./components/ImageDisplay";
 import ImageUpload from "./components/ImageUpload";
+import Slider from "./components/Slider";
 
 function App() {
   const [image, setImage] = useState(null);
-  const [dimensions, setDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [apply, setApply] = useState(false);
+
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
       {image && (
         <>
-          <ImageDisplay
+          {/* <ImageDisplay
             dimensions={dimensions}
             setDimensions={setDimensions}
             image={image}
-          />
-          <Canvas dimensions={dimensions} />
+          /> */}
+          <Canvas image={image} apply={apply} />
+          <Slider />
         </>
       )}
-      <ImageUpload image={image} setImage={setImage} />
+      <ImageUpload image={image} setImage={setImage} setApply={setApply} />
     </div>
   );
 }

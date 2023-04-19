@@ -17,6 +17,7 @@ const ImageDisplay = ({ dimensions, setDimensions, image }) => {
 
   return (
     <img
+      id="image"
       src={URL.createObjectURL(image)}
       alt="Not Found"
       width={"400px"}
